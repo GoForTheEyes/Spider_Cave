@@ -5,18 +5,21 @@ using UnityEngine;
 public class Door : MonoBehaviour {
 
     public static Door instance;
+    public BoxCollider2D box;
 
     private Animator anim;
-    private BoxCollider2D box;
 
     [HideInInspector]
     public int collectablesCount;
+    [HideInInspector]
+    public bool doorOpen;
 
     private void Awake()
     {
         MakeInstance();
         anim = GetComponent<Animator>();
         box = GetComponent<BoxCollider2D>();
+        doorOpen = false;
     }
 
 
@@ -29,14 +32,15 @@ public class Door : MonoBehaviour {
     {
         anim.SetBool("Open", true);
         yield return new WaitForSeconds(.7f);
-        box.isTrigger = true;
+        doorOpen = true;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag =="Player")
+        if (collision.tag =="Player" && doorOpen==true)
         {
-            Debug.Log("Game Finished");
+            GameplayController.instance.PlayerWinsLevel();
         }
     }
 

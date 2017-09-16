@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fe79c5439a248fd45818625129539bf0
-timeCreated: 1505340786
+timeCreated: 1505445677
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -219,7 +219,7 @@ TextureImporter:
       name: Back to Menu Button
       rect:
         serializedVersion: 2
-        x: 612
+        x: 615
         y: 81
         width: 276
         height: 66
